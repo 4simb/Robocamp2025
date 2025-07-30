@@ -13,11 +13,11 @@ class BaseUnit {
 
     virtual void StartBattle(int win_count) = 0;
 
-    std::string GetName();
+    std::string GetName() { return name_; }
 
-    std::string GetWinPhrase();
+    std::string GetWinPhrase() { return win_phrase_; }
 
-    std::string GetLosePhrase();
+    std::string GetLosePhrase() { return lose_phrase_; }
 
    protected:
     int win_count_;
