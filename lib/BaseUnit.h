@@ -19,12 +19,6 @@ class BaseUnit {
 
     virtual std::string GetLosePhrase() = 0;
 
-    virtual int GetWinCount() = 0;
-
-    virtual void SetWinCount(int count) = 0;
-
-    virtual bool IsWinner() = 0;
-
    protected:
     int win_count_;
 
