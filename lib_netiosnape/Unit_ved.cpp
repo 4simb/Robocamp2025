@@ -1,16 +1,17 @@
 #include "Unit_ved.hpp"
 
-int VED::max(double a,double b, double c){
-    if(a > b && a > c) return 0;
-    if(b > a && b > c) return 1;
-    if(c > a && c > b) return 2; 
+int VED::max(double a, double b, double c){
+    if(a >= b && a >= c) return 0;
+    if(b >= a && b >= c) return 1;
+    if(c >= a && c >= b) return 2; 
     return 0;
 }
 Choice VED::MakeChoice(){
+    if(isRock) return (Choice)0;
     if(!flag_first){
         flag_first = !flag_first;
-        my_choice = (Choice)2;
-        return (Choice)2;
+        my_choice = (Choice)1;
+        return (Choice)1;
     } 
     if((my_choice > opp_choice && !(my_choice == 2 && opp_choice == 0)) || (my_choice == 0 && opp_choice == 2)){
        win++; 
@@ -20,7 +21,12 @@ Choice VED::MakeChoice(){
         lose++;
         coefs[(int)my_choice] = coefs[(int)my_choice] - coefLose;
     } 
+    if(opp_choice == my_choice)
+    {
+        coefs[(int)my_choice] = coefs[(int)my_choice] - coefDraw;
+    }
     my_choice = (Choice)max(coefs[0], coefs[1], coefs[2]);
+    //std::cout << (int)my_choice << "\n";
     return my_choice;
 }
 void VED::SetResult(Choice enemy_choice){
@@ -41,5 +47,6 @@ std::string VED::GetWinPhrase(){
     return win_phrase_;
 }
 std::string VED::GetLosePhrase(){
+    //std::cout << coefs[0] << " " << coefs[1] << " " << coefs[2] << " ";
     return lose_phrase_;
 }

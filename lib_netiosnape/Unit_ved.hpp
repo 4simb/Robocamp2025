@@ -1,5 +1,6 @@
 #ifndef UNIT_VED_HPP
 #define UNIT_VED_HPP
+#include <iostream>
 #include "..//lib/BaseUnit.h"
 
 class VED : public BaseUnit{
@@ -9,13 +10,14 @@ class VED : public BaseUnit{
         Choice opp_choice;
         Choice my_choice = PAPER;
         double coefs[3] = {1, 1, 1};
-        double coefWin = 1/(double)win_count_, coefLose = 1/(double)win_count_;
+        double coefWin = 1, coefLose = 1, coefDraw = 0.5;
         int max(double a, double b, double c);
         std::string lose_phrase_ = "GG";
         std::string win_phrase_ = "2 EZ";
         std::string name_ = "VED";
         int lose, win;
     public:
+        bool isRock = false;
         Choice MakeChoice();
         void SetResult(Choice enemy_choice);
         void StartBattle(int win_count = 1);
