@@ -44,6 +44,11 @@ void VED::StartBattle(int win_count){
     coefs[2] = 1;
     roundesCounter = 0;
 }
+VED::VED(std::string name){
+    name = name_;
+    win_phrase_ = "2 EZ";
+    lose_phrase_ = "GG";
+}
 std::string VED::GetName(){
     return name_;
 }

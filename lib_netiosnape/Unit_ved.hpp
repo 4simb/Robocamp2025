@@ -12,11 +12,12 @@ class VED : public BaseUnit{
         double coefs[3] = {1, 1, 1};
         double coefWin = 1, coefLose = 1, coefDraw = 0.5;
         int max(double a, double b, double c);
-        std::string lose_phrase_ = "GG";
-        std::string win_phrase_ = "2 EZ";
-        std::string name_ = "VED";
+        std::string lose_phrase_;
+        std::string win_phrase_;
+        std::string name_;
         int lose, win;
     public:
+        VED(std::string name = "VED");
         bool isRock = false;
         Choice MakeChoice();
         void SetResult(Choice enemy_choice);
