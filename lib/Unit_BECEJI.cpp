@@ -2,15 +2,8 @@
 #include "Unit_BECEJI.h"
 #include "BaseUnit.h"
 
-int myChoiseRow;
-
-int counter;
-Choice enemyLast;
-Choice myLast;
-
-BECEJI_Strategy::BECEJI_Strategy()
+BECEJI_Strategy::BECEJI_Strategy(std::string mName)
 {
-    name = "BECEJI";
     winPhrase = "HaHaHa";
     losePhrase = "Oh, she*t, here we go again";
 }
@@ -36,13 +29,33 @@ Choice BECEJI_Strategy::MakeChoice()
     {
         if(enemyLast - myLast == -1 | enemyLast - myLast == 2)
         {
-            myChoiseRow += 2;
+            
+            drawCounter = 0;
+            loseCounter++;
+            if (loseCounter < 3)
+            {
+                myChoiseRow += 2;
+            }
+            else
+            {
+                myChoiseRow += 1;
+            }
         }
 
-        else if(enemyLast - myLast == -2 | enemyLast - myLast == 1){}
-        else if(enemyLast - myLast == 0 )
+        else if(enemyLast - myLast == -2 | enemyLast - myLast == 1)
         {
+            drawCounter = 0;
+            loseCounter = 0;
+        }
+        else if(enemyLast - myLast == 0)
+        {
+            drawCounter++;
+            loseCounter = 0;
             myChoiseRow += 1;
+            if(drawCounter < 3)
+            {
+                myChoiseRow += 1;
+            }
         }
     }
 
@@ -64,12 +77,13 @@ Choice BECEJI_Strategy::MakeChoice()
 
     counter++;
     myLast = choise;
+
     return choise;
 }
 
 void BECEJI_Strategy::unit()
 {
-    BECEJI_Strategy::BECEJI_Strategy();
+    //BECEJI_Strategy::BECEJI_Strategy(name);
     void SetResult();
     void StartBattle();
     Choice MakeChoice();
