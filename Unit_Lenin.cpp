@@ -3,8 +3,8 @@
 
 Choice Unit_Lenin::MakeChoice()
 {
-    choice = (choice + 3 + (((last_enemy_choice - choice + 3) % 3 == 1) * 2 - 1))
-    return choice
+    choice = (choice + 3 + (((last_enemy_choice - choice + 3) % 3 == 1) * 2 - 1)) % 3;
+    return choice;
 }
 
 void Unit_Lenin::SetResult(Choice enemy_choice)
