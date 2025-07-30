@@ -2,10 +2,10 @@
 #include "Unit_Lenin.h"
 
 
-Unit_Lenin::Unit_Lenin(std::string mName, int win_count)
+Unit_Lenin::Unit_Lenin(std::string mName = "Lenin", int win_count = 0)
 {
-    StartBattle(0);
-
+    name_ = mName;
+    StartBattle(win_count);
 }
 
 Choice Unit_Lenin::MakeChoice()

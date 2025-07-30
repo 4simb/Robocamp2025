@@ -8,11 +8,11 @@ class Unit_Lenin : public BaseUnit{
         int not_win_count_;
         
 
-        std::string name_ = "Lenin";
+        std::string name_;
 
-        const std::string win_phrase_ = "Glory to the Soviet Union!";
+        std::string win_phrase_ = "Glory to the Soviet Union!";
 
-        const std::string lose_phrase_ = "This is a shame, comrades.";
+        std::string lose_phrase_ = "This is a shame, comrades.";
         
     public:
         Unit_Lenin();
