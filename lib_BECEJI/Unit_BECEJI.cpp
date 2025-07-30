@@ -4,7 +4,7 @@
 
 BECEJI_Strategy::BECEJI_Strategy(std::string mName)
 {
-    winPhrase = "HaHaHa";
+    winPhrase = "PACTTNJI";
     losePhrase = "Oh, she*t, here we go again";
 }
 
