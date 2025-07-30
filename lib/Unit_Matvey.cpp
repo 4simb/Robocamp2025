@@ -32,10 +32,7 @@ Choice Unit_Matvey::MakeChoice(){
         MODE = 2;
     }
 
-
-
-    if (MODE == 1){
-    
+    if (MODE == 0){
         if(oLog.size() == 0){  //first play
             currPlay = Choice::ROCK;
             std::cout << "ROCK" << '\n';
@@ -61,12 +58,9 @@ Choice Unit_Matvey::MakeChoice(){
         return currPlay;
     }
     else if (MODE == 2){
-        currPlay = ref[(oLog.size() + 55221 - pLog.size()) % 4];
+        currPlay = ref[(oLog.size() + 55221 - int(pLog.size() * 0.3) + int(drawsCnt * 0.6)) % 4];
         return currPlay;
     }
-    
-    
-    
 }
 
 void Unit_Matvey::SetResult(Choice ch){
@@ -74,6 +68,7 @@ void Unit_Matvey::SetResult(Choice ch){
 
     if (ch == currPlay){
         oLog.push_back(0);
+        drawsCnt++;
     } else if (ref[std::find(ref.begin(), ref.end(), ch) - ref.begin() + 1] == currPlay){
         oLog.push_back(1);
         winsCnt++;
