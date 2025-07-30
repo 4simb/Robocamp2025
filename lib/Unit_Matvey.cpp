@@ -3,7 +3,7 @@
 
 Unit_Matvey::Unit_Matvey(std::string name){
     name = name_;
-    win_phrase_ = "Ill be back";
+    win_phrase_ = "Hasta la vista";
     lose_phrase_ = "OOOOOOOOOOOOOOOOOOOOOOH";
     winsCnt = 0;
     lossCnt = 0;
