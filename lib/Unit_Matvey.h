@@ -6,7 +6,7 @@
 
 class Unit_Matvey : public BaseUnit{
     public:
-        Unit_Matvey();
+        Unit_Matvey(std::string name);
 
         std::string GetLosePhrase();
         std::string GetWinPhrase();
@@ -20,9 +20,9 @@ class Unit_Matvey : public BaseUnit{
         void sayOutcome();
 
     private:
-        const std::string name_ = "Matvey";
-        const std::string win_phrase_ = "Ill be back";
-        const std::string lose_phrase_ = "OOOOOOOOOOOOOOOOOOOOOOH";
+        std::string name_;
+        std::string win_phrase_;
+        std::string lose_phrase_;
         std::vector<Choice> ref = {Choice::ROCK, Choice::PAPER, Choice::SCISSORS, Choice::ROCK};
         std::vector<std::string> lbl = {"ROCK", "PAPER", "SCISSORS"};
 

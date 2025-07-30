@@ -1,7 +1,10 @@
 #include"Unit_Matvey.h"
 
 
-Unit_Matvey::Unit_Matvey(){
+Unit_Matvey::Unit_Matvey(std::string name){
+    name = name_;
+    win_phrase_ = "Ill be back";
+    lose_phrase_ = "OOOOOOOOOOOOOOOOOOOOOOH";
     winsCnt = 0;
     lossCnt = 0;
     drawsCnt = 0;
@@ -55,10 +58,12 @@ Choice Unit_Matvey::MakeChoice(){
         } else {
             currPlay = pLog[pLog.size() - 1];
         }
+        //std::cout << lbl[std::find(ref.begin(), ref.end(), currPlay) - ref.begin()] << '\n';
         return currPlay;
     }
     else if (MODE == 2){
         currPlay = ref[(oLog.size() + 55221 - int(pLog.size() * 0.3) + int(drawsCnt * 0.6)) % 4];
+        //std::cout << lbl[std::find(ref.begin(), ref.end(), currPlay) - ref.begin()] << '\n';
         return currPlay;
     }
 }
