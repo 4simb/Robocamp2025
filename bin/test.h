@@ -1,5 +1,5 @@
 
-#include "../lib/BaseUnit.h"
+#include "BaseUnit.h"
 
 class Test1 : public BaseUnit{
 private:
@@ -71,7 +71,7 @@ private:
     Choice currChoice;
     int cycle;
     void chooseNext(){
-        currChoice = Choice((currChoice + 1) % 3);
+        currChoice = Choice((currChoice + 2) % 3);
     }
 public:
     Test2(std::string mName = "DefaultName"){
