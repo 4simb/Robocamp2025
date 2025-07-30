@@ -31,7 +31,7 @@ Choice Unit_Matvey::MakeChoice(){
     if (winsCnt + lossCnt + drawsCnt > battlesCnt / 5  && winsCnt - lossCnt <= 0 && MODE == 0){
         MODE = 1;
     }
-    if (winsCnt + lossCnt + drawsCnt > battlesCnt / 5 * 2 && winsCnt - lossCnt <= 0 && MODE == 1){
+    if (winsCnt + lossCnt + drawsCnt > battlesCnt / 5 * 3 && winsCnt - lossCnt <= 0 && MODE == 1){
         MODE = 2;
     }
 
