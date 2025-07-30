@@ -19,16 +19,20 @@ Choice VED::MakeChoice(){
         coefs[0] = coefs[0] + 0.5;
     if((my_choice > opp_choice && !(my_choice == 2 && opp_choice == 0)) || (my_choice == 0 && opp_choice == 2)){
        win++; 
+       draw = 0;
        coefs[(int)my_choice] = coefs[(int)my_choice] + coefWin;
     } 
     if((opp_choice > my_choice && !(opp_choice != 2 && my_choice == 2)) || (opp_choice == 0 && my_choice == 2)){
         lose++;
+        draw = 0;
         coefs[(int)my_choice] = coefs[(int)my_choice] - coefLose;
     } 
     if(opp_choice == my_choice)
     {
         coefs[(int)my_choice] = coefs[(int)my_choice] - coefDraw;
     }
+    draw++;
+    if(draw > 8) return Choice(rand() % 3);
     my_choice = (Choice)max(coefs[0], coefs[1], coefs[2]);
     //std::cout << (int)my_choice << "\n";
     return my_choice;

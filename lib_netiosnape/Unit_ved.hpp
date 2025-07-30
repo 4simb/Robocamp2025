@@ -15,7 +15,7 @@ class VED : public BaseUnit{
         std::string lose_phrase_;
         std::string win_phrase_;
         std::string name_;
-        int lose, win;
+        int lose, win, draw;
     public:
         VED(std::string name = "VED");
         bool isRock = false;
