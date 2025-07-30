@@ -7,10 +7,10 @@ Choice Unit_grob4n1::MakeChoice(){
 void Unit_grob4n1::SetResult(Choice enemy_choice){
     if(choice == enemy_choice){
         if(draw_in_a_row > 5){
-            if(enemy_choice == Choice::Rock){
+            if(enemy_choice == ROCK){
                 enemy_choice = PAPER;
             }
-            else if(enemy_choice == Choice::PAPER){
+            else if(enemy_choice == PAPER){
                 enemy_choice = SCISSORS;
             }
             else{
@@ -30,10 +30,12 @@ void Unit_grob4n1::SetResult(Choice enemy_choice){
         draw_in_a_row = 0;
     }
     if(draw == 0 && my_wins == 2 && other_wins == 2){
-        enemy_choice == Choice::PAPER;
+        enemy_choice == PAPER;
+    }
+    if(draw == 0 & my_wins == 0 & other_wins == 5){
+        enemy_choice == PAPER;
     }
     choice = enemy_choice;
-    return 0;
 }
 void Unit_grob4n1::StartBattle(int win_count){
     my_wins = 0;

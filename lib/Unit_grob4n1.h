@@ -1,4 +1,6 @@
-class Unit_Ruslan : public BaseUnit{
+#include "BaseUnit.h"
+
+class Unit_grob4n1 : public BaseUnit{
 private:
     Choice choice = SCISSORS;
     std::string name_ = "Ruslan";
@@ -18,4 +20,4 @@ public:
     std::string GetName();
     std::string GetWinPhrase();
     std::string GetLosePhrase();
-}
+};
