@@ -13,6 +13,10 @@ Choice VED::MakeChoice(){
         my_choice = (Choice)1;
         return (Choice)1;
     } 
+    if(opp_choice != 2)
+        coefs[(int)opp_choice + 1] = coefs[(int)opp_choice + 1] + 0.5;
+    else
+        coefs[0] = coefs[0] + 0.5;
     if((my_choice > opp_choice && !(my_choice == 2 && opp_choice == 0)) || (my_choice == 0 && opp_choice == 2)){
        win++; 
        coefs[(int)my_choice] = coefs[(int)my_choice] + coefWin;
