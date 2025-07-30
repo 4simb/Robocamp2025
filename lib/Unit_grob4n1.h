@@ -14,6 +14,7 @@ private:
     // bool flag = 0;
     // int win_lose = 0;
 public:
+    Unit_grob4n1(std::string mName)
     Choice MakeChoice();
     void SetResult(Choice enemy_choice);
     void StartBattle(int win_count);

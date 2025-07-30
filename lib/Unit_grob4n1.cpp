@@ -1,6 +1,9 @@
 #include <iostream>
 #include "Unit_grob4n1.h"
 
+Unit_grob4n1::Unit_grob4n1(std::string mName){
+    name_ = mName;
+}
 Choice Unit_grob4n1::MakeChoice(){
     return choice;
 }
