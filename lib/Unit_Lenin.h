@@ -5,6 +5,8 @@ class Unit_Lenin : public BaseUnit{
         Choice choice;
         Choice last_enemy_choice = ROCK;
         int win_count_ = 0;
+        int not_win_count_ = 0;
+        
 
         const std::string name_ = "Lenin";
 
