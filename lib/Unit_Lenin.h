@@ -3,28 +3,24 @@
 class Unit_Lenin : public BaseUnit{
     private:
         Choice choice;
-        Choice last_enemy_choice = ROCK;
-        int win_count_ = 0;
-        int not_win_count_ = 0;
+        Choice last_enemy_choice;
+        int win_count_;
+        int not_win_count_;
         
 
-        const std::string name_ = "Lenin";
+        std::string name_ = "Lenin";
 
         const std::string win_phrase_ = "Glory to the Soviet Union!";
 
         const std::string lose_phrase_ = "This is a shame, comrades.";
         
     public:
+        Unit_Lenin();
+
         Choice MakeChoice();
 
         void SetResult(Choice enemy_choice);
 
         void StartBattle(int win_count);
-
-        std::string GetName();
-
-        std::string GetWinPhrase();
-
-        std::string GetLosePhrase();
 };
 

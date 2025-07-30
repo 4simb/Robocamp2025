@@ -2,6 +2,12 @@
 #include "Unit_Lenin.h"
 
 
+Unit_Lenin::Unit_Lenin(std::string mName, int win_count)
+{
+    StartBattle(0);
+
+}
+
 Choice Unit_Lenin::MakeChoice()
 {
     choice = (Choice)((choice + 3 + (((last_enemy_choice - choice + 3) % 3 == 1) * 2 - 1)) % 3);
