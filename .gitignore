@@ -1,4 +1,7 @@
 .vscode/
+lib/BaseUnit.h
+README.md
+build/
 
 # Prerequisites
 *.d
