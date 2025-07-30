@@ -1,8 +1,8 @@
-#ifndef UNIT_VED.HPP
-#define UNIT_VED.HPP
-#include "lib/BaseUnit.h"
+#ifndef UNIT_VED_HPP
+#define UNIT_VED_HPP
+#include "..//lib/BaseUnit.h"
 
-class VED : public Unit{
+class VED : public BaseUnit{
     private:
         int roundesCounter = 0;
         bool flag_first = false;
@@ -11,6 +11,9 @@ class VED : public Unit{
         double coefs[3] = {1, 1, 1};
         double coefWin = 1/(double)win_count_, coefLose = 1/(double)win_count_;
         int max(double a, double b, double c);
+        std::string lose_phrase_ = "GG";
+        std::string win_phrase_ = "2 EZ";
+        std::string name_ = "VED";
         int lose, win;
     public:
         Choice MakeChoice();
