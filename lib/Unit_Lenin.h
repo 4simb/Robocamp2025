@@ -2,7 +2,7 @@
 
 class Unit_Lenin : public BaseUnit{
     private:
-        Choice choice = PAPER;
+        Choice choice;
         Choice last_enemy_choice = ROCK;
         int win_count_ = 0;
 
