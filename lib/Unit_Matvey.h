@@ -31,6 +31,9 @@ class Unit_Matvey : public BaseUnit{
         int winsCnt;
         int lossCnt;
         int drawsCnt;
+        int battlesCnt;
+
+        int MODE;
 
         Choice currPlay;
 };

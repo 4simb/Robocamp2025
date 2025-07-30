@@ -5,6 +5,7 @@ Unit_Matvey::Unit_Matvey(){
     winsCnt = 0;
     lossCnt = 0;
     drawsCnt = 0;
+    MODE = 0;
 }
 
 std::string Unit_Matvey::GetLosePhrase(){
@@ -17,12 +18,23 @@ std::string Unit_Matvey::GetWinPhrase(){
 void Unit_Matvey::StartBattle(int n){
     winsCnt = 0;
     lossCnt = 0;
+    drawsCnt = 0;
+    battlesCnt = n;
     oLog.clear();
     pLog.clear();
 }
 
 Choice Unit_Matvey::MakeChoice(){
-    if (winsCnt + lossCnt + drawsCnt < 20){
+    if (winsCnt + lossCnt + drawsCnt > battlesCnt / 5  && winsCnt - lossCnt <= 0 && MODE == 0){
+        MODE = 1;
+    }
+    if (winsCnt + lossCnt + drawsCnt > battlesCnt / 5 * 2 && winsCnt - lossCnt <= 0 && MODE == 1){
+        MODE = 2;
+    }
+
+
+
+    if (MODE == 1){
     
         if(oLog.size() == 0){  //first play
             currPlay = Choice::ROCK;
@@ -36,31 +48,23 @@ Choice Unit_Matvey::MakeChoice(){
             Choice ch = pLog[pLog.size() - 1];
             currPlay = ref[std::find(ref.begin(), ref.end(), ch) - ref.begin() + 1];
         }
-        std::cout << lbl[std::find(ref.begin(), ref.end(), currPlay) - ref.begin()] << '\n';
+        //std::cout << lbl[std::find(ref.begin(), ref.end(), currPlay) - ref.begin()] << '\n';
         return currPlay;
     }
-    else {
-        if (winsCnt - lossCnt > 0){
-
-            if(oLog[oLog.size() - 1] == 1){
-                currPlay = pLog[pLog.size() - 1];
-            } else {
-                Choice ch = pLog[pLog.size() - 1];
-                currPlay = ref[std::find(ref.begin(), ref.end(), ch) - ref.begin() + 1];
-            }
-            std::cout << lbl[std::find(ref.begin(), ref.end(), currPlay) - ref.begin()] << '\n';
-            return currPlay;
+    else if (MODE == 1){
+        if(oLog[oLog.size() - 1] == 1){
+            Choice ch = pLog[pLog.size() - 1];
+            currPlay = ref[std::find(ref.begin(), ref.end(), ch) - ref.begin() + 1];
+        } else {
+            currPlay = pLog[pLog.size() - 1];
         }
-        else {
-            if(oLog[oLog.size() - 1] == 1){
-                Choice ch = pLog[pLog.size() - 1];
-                currPlay = ref[std::find(ref.begin(), ref.end(), ch) - ref.begin() + 1];
-            } else {
-                currPlay = pLog[pLog.size() - 1];
-            }
-
-        }
+        return currPlay;
     }
+    else if (MODE == 2){
+        currPlay = ref[(oLog.size() + 55221 - pLog.size()) % 4];
+        return currPlay;
+    }
+    
     
     
 }
